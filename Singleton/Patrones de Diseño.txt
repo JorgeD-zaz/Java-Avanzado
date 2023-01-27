@@ -1,0 +1,107 @@
+Patrones de diseño 
+
+Singleton 
+
+Características:  
+
+Al implementarlo se garantiza que una clase tenga una única instancia. 
+
+Se genera acceso global a dicha instancia protegiéndola y evitando la sobreescritura de la misma. 
+
+Forma de aplicarlo: 
+
+Es necesario hacer privado el constructor para evitar que se creen instancias de la clase con el operador new 
+
+ Se crea un método estático el cual identifica si ya existe alguna instancia de la clase privada, si existe esta deberá estar almacenada de igual forma en un objeto estático almacenado en el cache, de no ser así, este método instancia a la clase privada y almacena la instancia en un objeto	 
+
+Al finalizar el método mejor conocido como getInstance, devuelve en forma de objeto la única instancia   generada de nuestra clase privada ya sea una nueva si es por primera vez o la almacenada   si fue creada con anterioridad. 
+
+Caso de Uso: 
+
+ Uno de los casos de uso común en el patrón singleton  es  una conexión a base de datos, permitiendo utilizar la instancia   en diversas ocasiones sin necesidad de crear una nueva  
+
+ 
+
+Factory 
+
+Crea una jerarquia de clases   
+
+Proporciona una interfaz para crear objetos en una superclase, mientras permite a las subclases alterar el tipo de objetos que se crearán. 
+
+Características: 
+
+Usa métodos de fábrica para tratar el problema de crear objetos sin tener que especificar la clase exacta del objeto que se creará. 
+
+Cuando una clase no puede adelantar las clases de objetos que debe crear. 
+
+Cuando una clase pretende que sus subclases especifiquen los objetos que ella crea. 
+
+Cuando una clase delega su responsabilidad hacia una de entre varias subclases auxiliares y queremos tener localizada a la subclase delegada. 
+
+Caso de uso 
+
+Pude ser usado para sistemas de autentificación para no concentrar los parámetros requeridos en una sola clase se pueden delegar diferentes lógicas para cada tipo de usuario si se requieren niveles de usuario  
+
+Builder 
+
+Consiste en básicamente en una clase especializada en construir instancias de otra clase que podemos hacer usable 
+
+Características  
+
+Te permite crear diferentes productos en función de tus necesidades con un desacople del código. De manera que mantenemos el principio de Responsabilidad Única. 
+
+El código se mantiene, y si se necesita algún nuevo atributo solo se añade. 
+
+Permite instanciar de manera ordenada objetos complejos que están compuestos de otros sin necesidad de conocer cómo están implementados 
+
+Nos permite producir distintos tipos y representaciones de un objeto empleando el mismo código de construcción. 
+
+Caso d uso: 
+
+ En una aplicación de comida rápida donde cada platillo es un objeto y los ingredientes opcionales son los atributos se crean los constructores de estos atributos, de esta forma se pueden construir platillos del mismo tipo, pero en cada uno invocando únicamente los atributos que este requiera 
+
+ 
+Prototype 
+
+Este patron consiste basicamente  en clonar objetos que no dependan de sus propias clases  
+
+Caracteristicas: 
+
+Nos permite crear y manipular copias de otros objetos: 
+
+Copia superficial: el objeto clonado tendrá los mismos valores que el original, guardando también referencias a otros objetos que contenga (por lo que si son modificados desde el objeto original o desde alguno de sus clones el cambio afectará a todos ellos). 
+
+Copia profunda: el objeto clonado tendrá los mismos valores que el original así como copias de los objetos que contenga el original (por lo que si son modificados por cualquiera de ellos, el resto no se verán afectados). 
+
+ 
+
+Caso de uso: 
+
+ En un videojuego se puede utilizar para   clonar diversos personajes    
+
+Adapter:  
+
+Permite que dos interfaces incompatibles trabajen juntas. 
+
+Caracteristicas:
+
+Se utiliza para adaptar una interfaz existente a una nueva interfaz.  
+
+Ejemplo de uso: adaptar una clase antigua a una interfaz actualizada para poder reutilizar su código.
+ 
+
+Decorator:  
+
+Permite añadir responsabilidades adicionales a un objeto dinámicamente.  
+
+Se utiliza para añadir funcionalidades a un objeto sin cambiar su código fuente. 
+
+Ejemplo de uso: Añadir seguridad a un método o clase específica. 
+
+Command:  
+
+Encapsula una solicitud como un objeto, lo que permite parametrizar otros objetos con diferentes solicitudes.  
+
+También permite desacoplar el emisor de una solicitud de su receptor, dando lugar a una estructura de comunicación más flexible.  
+
+Ejemplo de uso: implementar comandos para una aplicación que pueden ser deshacer y rehacer. 
